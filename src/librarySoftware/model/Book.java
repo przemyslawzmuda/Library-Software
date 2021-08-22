@@ -97,8 +97,13 @@ public class Book {
 
     // methods
     public void printBookInformations() {
-        String information = title + "; " + author + "; " + publishDate + "; " + pagesNumber
-                + "; " + publisher + "; " + isbn + ".";
+        String information = title + "; " + author + "; " + publishDate;
+        if (pagesNumber != 0)
+            information += "; " + pagesNumber;
+        if (publisher != null)
+            information += "; " + publisher;
+        if (isbn != null)
+            information += "; " + isbn;
         System.out.println(information);
     }
 }
