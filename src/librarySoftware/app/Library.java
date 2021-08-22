@@ -1,7 +1,11 @@
+package librarySoftware.app;
+
+import librarySoftware.model.Book;
+
 public class Library {
     // This class will store information about books according to the Book template.
     public static void main(String[] args) {
-        final String appName = "Library v0.4";
+        final String appName = "Library v0.5";
 
         System.out.println(appName);
         System.out.println("Books available in the Library:");

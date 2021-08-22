@@ -1,11 +1,15 @@
-class Book {
+package librarySoftware.model;
+
+public class Book {
     // This class is a template for creating new book in the future.
-    String title;
-    String author;
-    int publishDate;
-    int pagesNumber;
-    String publisher;
-    String isbn;
+
+    // class's fields
+    private String title;
+    private String author;
+    private int publishDate;
+    private int pagesNumber;
+    private String publisher;
+    private String isbn;
 
     /*
     Constructor allows me to create new instances of the Book type.
@@ -16,6 +20,7 @@ class Book {
     A keyword 'this' allows me to refer to the class's components.
      */
 
+    // constructors
     // overloaded constructor
     public Book(String title, String author, int publishDate, int pagesNumber, String publisher, String isbn) {
         this(title, author, publishDate, pagesNumber, publisher);
@@ -23,7 +28,7 @@ class Book {
     }
 
     // overloaded constructor
-    Book(String title, String author, int publishDate, int pagesNumber, String publisher) {
+    public Book(String title, String author, int publishDate, int pagesNumber, String publisher) {
         this(title, author, publishDate, pagesNumber);
         this.publisher = publisher;
     }
@@ -41,7 +46,57 @@ class Book {
         this.publishDate = publishDate;
     }
 
-    void printBookInformations() {
+    // access specifications
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public int getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(int publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public int getPagesNumber() {
+        return pagesNumber;
+    }
+
+    public void setPagesNumber(int pagesNumber) {
+        this.pagesNumber = pagesNumber;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    // methods
+    public void printBookInformations() {
         String information = title + "; " + author + "; " + publishDate + "; " + pagesNumber
                 + "; " + publisher + "; " + isbn + ".";
         System.out.println(information);
