@@ -1,14 +1,11 @@
 package librarySoftware.model;
 
-public class Book {
+public class Book extends PublicationModel {
     // This class is a template for creating new book in the future.
 
     // class's fields
-    private String title;
     private String author;
-    private int publishDate;
     private int pagesNumber;
-    private String publisher;
     private String isbn;
 
     /*
@@ -30,7 +27,7 @@ public class Book {
     // overloaded constructor
     public Book(String title, String author, int publishDate, int pagesNumber, String publisher) {
         this(title, author, publishDate, pagesNumber);
-        this.publisher = publisher;
+        this.setPublisher(publisher);
     }
 
     // overloaded constructor
@@ -41,20 +38,12 @@ public class Book {
 
     // Default constructor - the information below are mandatory
     public Book(String title, String author, int publishDate) {
-        this.title = title;
+        this.setTitle(title);
         this.author = author;
-        this.publishDate = publishDate;
+        this.setPublishYear(publishDate);
     }
 
     // access specifications
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getAuthor() {
         return author;
     }
@@ -63,28 +52,12 @@ public class Book {
         this.author = author;
     }
 
-    public int getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(int publishDate) {
-        this.publishDate = publishDate;
-    }
-
     public int getPagesNumber() {
         return pagesNumber;
     }
 
     public void setPagesNumber(int pagesNumber) {
         this.pagesNumber = pagesNumber;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
     }
 
     public String getIsbn() {
@@ -97,11 +70,11 @@ public class Book {
 
     // methods
     public void printBookInformations() {
-        String information = title + "; " + author + "; " + publishDate;
+        String information = getTitle() + "; " + author + "; " + getPublishYear();
         if (pagesNumber != 0)
             information += "; " + pagesNumber;
-        if (publisher != null)
-            information += "; " + publisher;
+        if (getPublisher() != null)
+            information += "; " + getPublisher();
         if (isbn != null)
             information += "; " + isbn;
         System.out.println(information);
