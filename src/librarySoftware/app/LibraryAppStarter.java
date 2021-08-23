@@ -5,6 +5,7 @@ import librarySoftware.model.Book;
 
 public class LibraryAppStarter {
     private static final String APP_NAME = "Library v1.0";
+    private static final int VARIABLE = 0;
 
     public static void main(String[] args) {
         System.out.println(APP_NAME);
