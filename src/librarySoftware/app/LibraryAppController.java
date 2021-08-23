@@ -3,6 +3,7 @@ package librarySoftware.app;
 import librarySoftware.io.DataInput;
 import librarySoftware.model.Book;
 import librarySoftware.model.LibraryRepository;
+import librarySoftware.model.Magazine;
 
 class LibraryAppController {
     /*
@@ -10,7 +11,10 @@ class LibraryAppController {
      */
     private final static int EXIT = 0;
     private final static int INSERT_BOOK = 1;
-    private final static int PRINT_BOOKS_FROM_LIBRARY = 2;
+    private final static int INSERT_MAGAZINE = 2;
+    private final static int PRINT_BOOKS_FROM_LIBRARY = 3;
+    private final static int PRINT_MAGAZINES_FROM_LIBRARY = 4;
+
     // create object class's field to store Books in the library
     private DataInput dataInput = new DataInput();
     // create object class's field to read in data from the users
@@ -29,8 +33,14 @@ class LibraryAppController {
                 case INSERT_BOOK:
                     insertBookToLibrary();
                     break;
+                case INSERT_MAGAZINE:
+                    insertMagazineToLibrary();
+                    break;
                 case PRINT_BOOKS_FROM_LIBRARY:
                     printAllBooksFromLibrary();
+                    break;
+                case PRINT_MAGAZINES_FROM_LIBRARY:
+                    printAllMagazinesFromLibrary();
                     break;
                 default:
                     System.out.println("The option has not been chosen correctly.");
@@ -51,6 +61,13 @@ class LibraryAppController {
     private void printAllBooksFromLibrary() {
         libraryRepository.printBooksFromLibrary();
     }
+
+    private void insertMagazineToLibrary() {
+        Magazine magazine = dataInput.readAndCreateMagazineObject();
+        libraryRepository.addMagazineIntoLibrary(magazine);
+    }
+
+    private void printAllMagazinesFromLibrary() {libraryRepository.printMagazinesFromLibrary();}
 
     private void displayUserOptions() {
         System.out.println("Choose option:");
