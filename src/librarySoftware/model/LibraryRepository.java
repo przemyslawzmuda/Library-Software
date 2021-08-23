@@ -4,13 +4,13 @@ public class LibraryRepository {
     /*
     Template of the repository to store books in the library.
      */
-    private final int maxBooks = 2000; // variable to limit number of the books in the booksArray
-    private Book[] booksArray = new Book[maxBooks];
+    private final static int MAX_BOOKS = 2000; // variable to limit number of the books in the booksArray
+    private Book[] booksArray = new Book[MAX_BOOKS];
 
     private int booksNumber = 0;
     // make the function public to be able to call that method in the another package
     public void addBookIntoLibrary(Book book) {
-        if (booksNumber < maxBooks) {
+        if (booksNumber < MAX_BOOKS) {
             booksArray[booksNumber] = book;
             booksNumber++;
         } else {

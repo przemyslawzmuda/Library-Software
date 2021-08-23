@@ -8,9 +8,9 @@ class LibraryAppController {
     /*
     Class which connects all functionality of the entire Library software.
      */
-    private final int exit = 0;
-    private final int insertBook = 1;
-    private final int printBooksFromLibrary = 2;
+    private final static int EXIT = 0;
+    private final static int INSERT_BOOK = 1;
+    private final static int PRINT_BOOKS_FROM_LIBRARY = 2;
     // create object class's field to store Books in the library
     private DataInput dataInput = new DataInput();
     // create object class's field to read in data from the users
@@ -23,19 +23,19 @@ class LibraryAppController {
             displayUserOptions();
             userChoice = dataInput.inputInt();
             switch (userChoice) {
-                case exit:
+                case EXIT:
                     closeApp();
                     break;
-                case insertBook:
+                case INSERT_BOOK:
                     insertBookToLibrary();
                     break;
-                case printBooksFromLibrary:
+                case PRINT_BOOKS_FROM_LIBRARY:
                     printAllBooksFromLibrary();
                     break;
                 default:
                     System.out.println("The option has not been chosen correctly.");
             }
-        } while (userChoice != exit);
+        } while (userChoice != EXIT);
     }
 
     private void closeApp() {
