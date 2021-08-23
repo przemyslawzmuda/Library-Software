@@ -1,6 +1,7 @@
 package librarySoftware.io;
 
 import librarySoftware.model.Book;
+import librarySoftware.model.Magazine;
 import java.util.Scanner;
 
 public class DataInput {
@@ -30,6 +31,22 @@ public class DataInput {
         System.out.println("ISBN:");
         String isbnBook = input.nextLine();
         return new Book(titleBook, authorBook, publishDateBook, pagesNumberBook, publisherBook, isbnBook);
+    }
+
+    public Magazine readAndCreateMagazineObject() {
+        System.out.println("Title:");
+        String titleMagazine = input.nextLine();
+        System.out.println("Publisher:");
+        String publisher = input.nextLine();
+        System.out.println("Publish Year:");
+        int year = inputInt();
+        System.out.println("Publish month:");
+        int month = inputInt();
+        System.out.println("Publish day:");
+        int day = inputInt();
+        System.out.println("Magazine language::");
+        String language = input.nextLine();
+        return new Magazine(titleMagazine, publisher, year, month, day, language);
     }
 
     public void closeScanner() {
