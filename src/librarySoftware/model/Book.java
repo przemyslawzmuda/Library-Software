@@ -20,14 +20,9 @@ public class Book extends PublicationModel {
     // constructors
     // overloaded constructor
     public Book(String title, String author, String publisher, int publishYear, int pagesNumber, String isbn) {
-        this(title, author, publisher, publishYear, pagesNumber);
-        this.isbn = isbn; // class's field = parameter
-    }
-
-    // overloaded constructor
-    public Book(String title, String author, String publisher, int publishYear, int pagesNumber) {
         this(title, author, publisher, publishYear);
         this.pagesNumber = pagesNumber;
+        this.isbn = isbn;
     }
 
     // Main constructor - the information below are mandatory
@@ -36,7 +31,7 @@ public class Book extends PublicationModel {
         // thanks to the constructor in the superior class, I can call it in the derivative class by super() method
         // don't need setter to set the correct parameters of the constructor
         super(title, publisher, publishYear);
-        this.author = author;
+        this.author = author; // class's field = parameter
     }
 
     // access specifications
