@@ -4,19 +4,15 @@ public class LibraryRepository {
     /*
     Template of the repository to store books in the library.
      */
-    private final static int MAX_BOOKS = 2000; // variable to limit number of the books in the booksArray
-    private final static int MAX_MAGAZINES = 2000;
-    private Book[] booksArray = new Book[MAX_BOOKS];
-    private Magazine[] magazinesArray = new Magazine[MAX_MAGAZINES];
-
-    private int booksNumber = 0;
-    private int magazinesNumber = 0;
+    private final static int MAX_PUBLICATIONS_IN_LIBRARY = 4000; // variable to limit the number of the publications
+    private int publicationsNumber = 0;
+    private PublicationModel[] publicationsInLibraryArray = new PublicationModel[MAX_PUBLICATIONS_IN_LIBRARY];
 
     // make the function public to be able to call that method in the another package
     public void addBookIntoLibrary(Book book) {
-        if (booksNumber < MAX_BOOKS) {
-            booksArray[booksNumber] = book;
-            booksNumber++;
+        if (publicationsNumber < MAX_PUBLICATIONS_IN_LIBRARY) {
+            publicationsInLibraryArray[publicationsNumber] = book;
+            publicationsNumber++;
         } else {
             System.out.println("The maximum number of the books has been reached.");
         }
@@ -24,27 +20,38 @@ public class LibraryRepository {
 
     // no parameter passed to the function below because I operate in the same class
     public void printBooksFromLibrary() {
+        int booksNumber = 0;
+        for (int i = 0; i < publicationsNumber; i++) { // limit is a booksNumber - avoid display the null values
+            if (publicationsInLibraryArray[i] instanceof Book) {
+                // can not call printBookInformations() on publicationsInLibraryArray[i] - I use reference type of PublicationModel
+                // call only methods which are defined in the type of the reference - add a signature into the superior class
+                // publicationsInLibraryArray[i].printBookInformations();
+                publicationsInLibraryArray[i].printBookInformations();
+                booksNumber++;
+            }
+        }
         if (booksNumber == 0)
             System.out.println("No available books in the library.");
-        for (int i = 0; i < booksNumber; i++) { // limit is a booksNumber - avoid display the null values
-            booksArray[i].printBookInformations();
-        }
     }
 
     public void addMagazineIntoLibrary(Magazine magazine) {
-        if (booksNumber < MAX_MAGAZINES) {
-            magazinesArray[magazinesNumber] = magazine;
-            magazinesNumber++;
+        if (publicationsNumber < MAX_PUBLICATIONS_IN_LIBRARY) {
+            publicationsInLibraryArray[publicationsNumber] = magazine;
+            publicationsNumber++;
         } else {
             System.out.println("The maximum number of the magazines has been reached.");
         }
     }
 
     public void printMagazinesFromLibrary() {
-        if (magazinesNumber == 0)
-            System.out.println("No available magazines in the library.");
-        for (int i = 0; i < magazinesNumber; i++) { // limit is a magazinesNumber - avoid display the null values
-            magazinesArray[i].printMagazineInformations();
+        int magazinesNumber = 0;
+        for (int i = 0; i < publicationsNumber; i++) { // limit is a publicationsNumber - avoid display the null values
+            if (publicationsInLibraryArray[i] instanceof Magazine) {
+                publicationsInLibraryArray[i].printMagazineInformations();
+                magazinesNumber++;
+            }
         }
+        if (publicationsNumber == 0)
+            System.out.println("No available magazines in the library.");
     }
 }

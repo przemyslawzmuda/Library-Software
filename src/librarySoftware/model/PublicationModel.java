@@ -35,4 +35,7 @@ class PublicationModel {
     public void setPublishYear(int publishYear) {
         this.publishYear = publishYear;
     }
+
+    public void printBookInformations() {}
+    public void printMagazineInformations() {}
 }

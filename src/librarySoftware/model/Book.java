@@ -60,6 +60,7 @@ public class Book extends PublicationModel {
     }
 
     // methods
+    @Override
     public void printBookInformations() {
         String information = getTitle() + "; " + author + "; " + getPublishYear();
         if (pagesNumber != 0)
