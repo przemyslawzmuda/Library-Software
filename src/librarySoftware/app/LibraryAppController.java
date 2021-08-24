@@ -73,6 +73,8 @@ class LibraryAppController {
         System.out.println("Choose option:");
         System.out.println("0 - Exit.");
         System.out.println("1 - Add a new book.");
-        System.out.println("2 - Display available books.");
+        System.out.println("2 - Add a new magazine.");
+        System.out.println("3 - Display available books.");
+        System.out.println("4 - Display available magazines.");
     }
 }

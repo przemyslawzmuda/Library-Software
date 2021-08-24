@@ -44,7 +44,7 @@ public class DataInput {
         int month = inputInt();
         System.out.println("Publish day:");
         int day = inputInt();
-        System.out.println("Magazine language::");
+        System.out.println("Magazine language:");
         String language = input.nextLine();
         return new Magazine(titleMagazine, publisher, year, month, day, language);
     }
