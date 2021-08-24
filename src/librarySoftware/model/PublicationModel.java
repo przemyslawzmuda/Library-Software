@@ -1,9 +1,16 @@
 package librarySoftware.model;
 
-public class PublicationModel {
+class PublicationModel {
     private String title;
     private String publisher;
     private int publishYear;
+
+    // Add a constructor in the superior class
+    public PublicationModel(String title, String publisher, int publishYear) {
+        this.title = title;
+        this.publisher = publisher;
+        this.publishYear = publishYear;
+    }
 
     public String getTitle() {
         return title;

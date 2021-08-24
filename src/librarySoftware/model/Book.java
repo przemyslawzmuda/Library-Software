@@ -19,28 +19,24 @@ public class Book extends PublicationModel {
 
     // constructors
     // overloaded constructor
-    public Book(String title, String author, int publishDate, int pagesNumber, String publisher, String isbn) {
-        this(title, author, publishDate, pagesNumber, publisher);
+    public Book(String title, String author, String publisher, int publishYear, int pagesNumber, String isbn) {
+        this(title, author, publisher, publishYear, pagesNumber);
         this.isbn = isbn; // class's field = parameter
     }
 
     // overloaded constructor
-    public Book(String title, String author, int publishDate, int pagesNumber, String publisher) {
-        this(title, author, publishDate, pagesNumber);
-        this.setPublisher(publisher);
-    }
-
-    // overloaded constructor
-    public Book(String title, String author, int publishDate, int pagesNumber) {
-        this(title, author, publishDate);
+    public Book(String title, String author, String publisher, int publishYear, int pagesNumber) {
+        this(title, author, publisher, publishYear);
         this.pagesNumber = pagesNumber;
     }
 
-    // Default constructor - the information below are mandatory
-    public Book(String title, String author, int publishDate) {
-        this.setTitle(title);
+    // Main constructor - the information below are mandatory
+    public Book(String title, String author, String publisher, int publishYear) {
+        // super() is a default call value
+        // thanks to the constructor in the superior class, I can call it in the derivative class by super() method
+        // don't need setter to set the correct parameters of the constructor
+        super(title, publisher, publishYear);
         this.author = author;
-        this.setPublishYear(publishDate);
     }
 
     // access specifications

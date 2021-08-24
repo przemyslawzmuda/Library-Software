@@ -22,15 +22,15 @@ public class DataInput {
         String titleBook = input.nextLine();
         System.out.println("Author:");
         String authorBook = input.nextLine();
-        System.out.println("Publish date:");
-        int publishDateBook = inputInt();
+        System.out.println("Publish year:");
+        int publishYearBook = inputInt();
         System.out.println("Pages number:");
         int pagesNumberBook = inputInt();
         System.out.println("Publisher:");
         String publisherBook = input.nextLine();
         System.out.println("ISBN:");
         String isbnBook = input.nextLine();
-        return new Book(titleBook, authorBook, publishDateBook, pagesNumberBook, publisherBook, isbnBook);
+        return new Book(titleBook, authorBook, publisherBook, publishYearBook, pagesNumberBook, isbnBook);
     }
 
     public Magazine readAndCreateMagazineObject() {
