@@ -1,5 +1,7 @@
 package librarySoftware.model;
 
+import java.util.Objects;
+
 public class Magazine extends PublicationModel {
     private int day;
     private int month;
@@ -36,10 +38,23 @@ public class Magazine extends PublicationModel {
         this.language = language;
     }
 
+    // Use toString() method instead of using System.out.println(). Logic of the application should be in the another package.
     @Override
-    public void printMagazineInformations() {
-        String information = getTitle() + "; " + getPublisher() + "; " + getPublishYear() + "."
-                + month + "." + day + "; " + language;
-        System.out.println(information);
+    public String toString() {
+        return super.toString() + "; " + day + "; " + month + "; " + language;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Magazine magazine = (Magazine) o;
+        return day == magazine.day && month == magazine.month && Objects.equals(language, magazine.language);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), day, month, language);
     }
 }

@@ -1,5 +1,7 @@
 package librarySoftware.model;
 
+import java.util.Objects;
+
 public class Book extends PublicationModel {
     // This class is a template for creating new book in the future.
 
@@ -61,14 +63,21 @@ public class Book extends PublicationModel {
 
     // methods
     @Override
-    public void printBookInformations() {
-        String information = getTitle() + "; " + author + "; " + getPublishYear();
-        if (pagesNumber != 0)
-            information += "; " + pagesNumber;
-        if (getPublisher() != null)
-            information += "; " + getPublisher();
-        if (isbn != null)
-            information += "; " + isbn;
-        System.out.println(information);
+    public String toString() {
+        return super.toString() + "; " + author + "; " + pagesNumber + "; " + isbn;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Book book = (Book) o;
+        return pagesNumber == book.pagesNumber && Objects.equals(author, book.author) && Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), author, pagesNumber, isbn);
     }
 }
