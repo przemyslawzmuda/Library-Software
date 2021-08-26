@@ -26,7 +26,7 @@ public class LibraryRepository {
                 // can not call printBookInformations() on publicationsInLibraryArray[i] - I use reference type of PublicationModel
                 // call only methods which are defined in the type of the reference - add a signature into the superior class
                 // publicationsInLibraryArray[i].printBookInformations();
-                publicationsInLibraryArray[i].printBookInformations();
+                System.out.println(publicationsInLibraryArray[i]); // toString() will call automatically
                 booksNumber++;
             }
         }
@@ -47,7 +47,7 @@ public class LibraryRepository {
         int magazinesNumber = 0;
         for (int i = 0; i < publicationsNumber; i++) { // limit is a publicationsNumber - avoid display the null values
             if (publicationsInLibraryArray[i] instanceof Magazine) {
-                publicationsInLibraryArray[i].printMagazineInformations();
+                System.out.println(publicationsInLibraryArray[i]); // toString() will call automatically
                 magazinesNumber++;
             }
         }
