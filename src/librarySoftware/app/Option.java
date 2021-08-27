@@ -31,6 +31,8 @@ enum Option {
         return value + " - " + description;
     }
 
+    // create a static method - no need to create a new object to call that method ex.: (Option.createFromInt())
+    // convert value from the user to value of the Option enum type
     static Option createFromInt(int option) {
         return Option.values()[option]; // returns an array with the all values in the corresponding enum type
     }

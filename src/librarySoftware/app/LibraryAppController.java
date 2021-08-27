@@ -9,11 +9,7 @@ class LibraryAppController {
     /*
     Class which connects all functionality of the entire Library software.
      */
-    private final static int EXIT = 0;
-    private final static int INSERT_BOOK = 1;
-    private final static int INSERT_MAGAZINE = 2;
-    private final static int PRINT_BOOKS_FROM_LIBRARY = 3;
-    private final static int PRINT_MAGAZINES_FROM_LIBRARY = 4;
+
 
     // create object class's field to store Books in the library
     private DataInput dataInput = new DataInput();
@@ -22,10 +18,11 @@ class LibraryAppController {
 
     // display functionality of the Library-Software
     public void mainLibraryController() {
-        int userChoice;
+        Option userChoice;
         do {
             displayUserOptions();
-            userChoice = dataInput.inputInt();
+            // convert value from the user to value of the Option enum type
+            userChoice = Option.createFromInt(dataInput.inputInt());
             switch (userChoice) {
                 case EXIT:
                     closeApp();
@@ -45,7 +42,7 @@ class LibraryAppController {
                 default:
                     System.out.println("The option has not been chosen correctly.");
             }
-        } while (userChoice != EXIT);
+        } while (userChoice != Option.EXIT);
     }
 
     private void closeApp() {
@@ -71,10 +68,9 @@ class LibraryAppController {
 
     private void displayUserOptions() {
         System.out.println("Choose option:");
-        System.out.println("0 - Exit.");
-        System.out.println("1 - Add a new book.");
-        System.out.println("2 - Add a new magazine.");
-        System.out.println("3 - Display available books.");
-        System.out.println("4 - Display available magazines.");
+        // take all options from the Option enum type
+        for (Option value : Option.values()) {
+            System.out.println(value);
+        }
     }
 }
