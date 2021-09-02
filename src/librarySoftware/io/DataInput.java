@@ -9,42 +9,59 @@ public class DataInput {
     This class will allow to create new objects according to the data entered by a user.
     It should be only one place to perform interaction with the users.
      */
+
     private Scanner input = new Scanner(System.in); // create an input object to read data from a user as a class's field
 
-    public int inputInt() {
-        int number = input.nextInt();
-        input.nextLine(); // consume a whitespace from an enter key
-        return number;
+    // create a small number of objects as you can
+    private ConsolePrinter printer; // don't create the new object of the ConsolePrinter
+    // use dependency injection - the object DataInput depends on the ConsolePrinterObject
+
+    // pass injection through the constructor
+    public DataInput(ConsolePrinter printer) {
+        this.printer = printer;
     }
 
+    public int inputInt() {
+        try { // not Int? - throw InputMismatchException, I can catch that in the another place
+            return input.nextInt();
+        } finally {
+            input.nextLine(); // consume a whitespace from an enter key always
+        }
+    }
+
+    /*
+    Use ctrl (cmd) +shift+f to find a text content
+    Use cmd + r to change the text content
+     */
+
     public Book readAndCreateBookObject() {
-        System.out.println("Title:");
+        printer.printLine("Title:");
         String titleBook = input.nextLine();
-        System.out.println("Author:");
+        printer.printLine("Author:");
         String authorBook = input.nextLine();
-        System.out.println("Publish year:");
+        printer.printLine("Publish year:");
         int publishYearBook = inputInt();
-        System.out.println("Pages number:");
+        printer.printLine("Pages number:");
         int pagesNumberBook = inputInt();
-        System.out.println("Publisher:");
+        printer.printLine("Publisher:");
         String publisherBook = input.nextLine();
-        System.out.println("ISBN:");
+        printer.printLine("ISBN:");
         String isbnBook = input.nextLine();
         return new Book(titleBook, authorBook, publisherBook, publishYearBook, pagesNumberBook, isbnBook);
     }
 
     public Magazine readAndCreateMagazineObject() {
-        System.out.println("Title:");
+        printer.printLine("Title:");
         String titleMagazine = input.nextLine();
-        System.out.println("Publisher:");
+        printer.printLine("Publisher:");
         String publisher = input.nextLine();
-        System.out.println("Publish Year:");
+        printer.printLine("Publish Year:");
         int year = inputInt();
-        System.out.println("Publish month:");
+        printer.printLine("Publish month:");
         int month = inputInt();
-        System.out.println("Publish day:");
+        printer.printLine("Publish day:");
         int day = inputInt();
-        System.out.println("Magazine language:");
+        printer.printLine("Magazine language:");
         String language = input.nextLine();
         return new Magazine(titleMagazine, publisher, year, month, day, language);
     }
