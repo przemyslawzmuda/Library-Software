@@ -58,8 +58,14 @@ class LibraryAppController {
     }
 
     private void insertBookToLibrary() {
-        Book book = dataInput.readAndCreateBookObject();
-        libraryRepository.addBookIntoLibrary(book);
+        try {
+            Book book = dataInput.readAndCreateBookObject();
+            libraryRepository.addBookIntoLibrary(book);
+        } catch (InputMismatchException err) {
+            printer.printLine("Unable to add a new Book into the library due to incorrect data inputs.");
+        } catch (ArrayIndexOutOfBoundsException err) {
+            printer.printLine("The limit of the library capacity has been gained. - Unable to add a new Book.");
+        }
     }
 
     private void printAllBooksFromLibrary() {
@@ -68,8 +74,14 @@ class LibraryAppController {
     }
 
     private void insertMagazineToLibrary() {
-        Magazine magazine = dataInput.readAndCreateMagazineObject();
-        libraryRepository.addMagazineIntoLibrary(magazine);
+        try {
+            Magazine magazine = dataInput.readAndCreateMagazineObject();
+            libraryRepository.addMagazineIntoLibrary(magazine);
+        } catch (InputMismatchException err) {
+            printer.printLine("Unable to add a new Book into the library due to incorrect data inputs.");
+        } catch (ArrayIndexOutOfBoundsException err) {
+            printer.printLine("The limit of the library capacity has been gained. - Unable to add a new Book.");
+        }
     }
 
     private void printAllMagazinesFromLibrary() {

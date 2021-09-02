@@ -4,7 +4,7 @@ import librarySoftware.io.DataInput;
 import librarySoftware.model.Book;
 
 public class LibraryAppStarter {
-    private static final String APP_NAME = "Library v1.4";
+    private static final String APP_NAME = "Library v1.5";
 
     public static void main(String[] args) {
         System.out.println(APP_NAME);
